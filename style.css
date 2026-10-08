@@ -10,6 +10,10 @@
   padding: 0;
 }
 
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   font-family: Georgia, "Times New Roman", serif;
   background: var(--cream);
@@ -38,6 +42,11 @@ a {
 .navbar nav a {
   margin-left: 24px;
   color: #e7d7c4;
+  transition: color 0.2s;
+}
+
+.navbar nav a:hover {
+  color: #f4c27a;
 }
 
 .hero {
@@ -65,7 +74,14 @@ a {
   font-weight: bold;
   background: #f4c27a;
   border-radius: 999px;
+  transition: transform 0.2s, background 0.2s;
 }
+
+.cta:hover {
+  background: #ffd699;
+  transform: translateY(-3px);
+}
+
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -79,6 +95,12 @@ a {
   background: #fff;
   border-radius: 12px;
   box-shadow: 0 6px 20px rgba(43, 29, 20, 0.08);
+  transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.feature:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 14px 30px rgba(43, 29, 20, 0.18);
 }
 
 .feature h3 {
@@ -100,41 +122,137 @@ a {
   border-radius: 999px;
 }
 
+/* ---------- Commit 6: Full menu ---------- */
+.full-menu {
+  padding: 16px 8% 64px;
+  text-align: center;
+}
+
+.full-menu > h2 {
+  margin-bottom: 32px;
+  font-size: 2rem;
+  color: var(--brown);
+}
+
+.menu-columns {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 40px;
+  text-align: left;
+}
+
+.menu-group h3 {
+  margin-bottom: 16px;
+  padding-bottom: 8px;
+  color: var(--brown);
+  border-bottom: 2px solid #f4c27a;
+}
+
+.menu-group ul {
+  list-style: none;
+}
+
+.menu-group li {
+  display: flex;
+  align-items: baseline;
+  gap: 8px;
+  padding: 8px 0;
+}
+
+.menu-group .dots {
+  flex: 1;
+  border-bottom: 2px dotted #cdb79e;
+}
+
+.menu-group li span:last-child {
+  font-weight: bold;
+  color: var(--brown);
+}
+
+/* ---------- Commit 5: About + Testimonials ---------- */
+.about {
+  display: grid;
+  grid-template-columns: 1.4fr 1fr;
+  gap: 48px;
+  align-items: center;
+  padding: 48px 8% 64px;
+}
+
+.about h2,
+.testimonials h2 {
+  margin-bottom: 16px;
+  font-size: 2rem;
+  color: var(--brown);
+}
+
+.about-text p {
+  margin-bottom: 14px;
+  color: #6b5b4e;
+}
+
+.about-stats {
+  display: grid;
+  gap: 16px;
+}
+
+.stat {
+  padding: 20px;
+  text-align: center;
+  background: #fff;
+  border-left: 5px solid #f4c27a;
+  border-radius: 10px;
+  box-shadow: 0 6px 20px rgba(43, 29, 20, 0.08);
+}
+
+.stat strong {
+  display: block;
+  font-size: 1.8rem;
+  color: var(--brown);
+}
+
+.stat span {
+  font-size: 0.9rem;
+  color: #6b5b4e;
+}
+
+.testimonials {
+  padding: 56px 8%;
+  text-align: center;
+  background: #f6e9d7;
+}
+
+.testimonial-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+  margin-top: 28px;
+}
+
+.testimonial {
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 6px 20px rgba(43, 29, 20, 0.08);
+}
+
+.testimonial p {
+  margin-bottom: 14px;
+  font-style: italic;
+}
+
+.testimonial cite {
+  font-size: 0.9rem;
+  font-style: normal;
+  font-weight: bold;
+  color: var(--brown);
+}
+
 .footer {
   padding: 32px 8%;
   text-align: center;
   font-size: 0.9rem;
   color: #e7d7c4;
   background: var(--dark);
-}
-html {
-  scroll-behavior: smooth;
-}
-
-.navbar nav a {
-  transition: color 0.2s;
-}
-
-.navbar nav a:hover {
-  color: #f4c27a;
-}
-
-.cta {
-  transition: transform 0.2s, background 0.2s;
-}
-
-.cta:hover {
-  background: #ffd699;
-  transform: translateY(-3px);
-}
-
-.feature {
-  transition: transform 0.25s, box-shadow 0.25s;
-}
-
-.feature:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 14px 30px rgba(43, 29, 20, 0.18);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -143,21 +261,43 @@ html {
     color: #f3e9dc;
   }
 
-  .feature {
+  .feature,
+  .stat,
+  .testimonial {
     background: #2b1d14;
   }
 
-  .feature p {
+  .feature p,
+  .about-text p,
+  .stat span {
     color: #bfae9c;
   }
 
-  .feature h3 {
+  .feature h3,
+  .about h2,
+  .testimonials h2,
+  .full-menu > h2,
+  .menu-group h3,
+  .menu-group li span:last-child,
+  .stat strong,
+  .testimonial cite {
     color: #f4c27a;
+  }
+
+  .testimonials {
+    background: #221710;
+  }
+
+  .menu-group .dots {
+    border-bottom-color: #5a4636;
   }
 }
 
 @media (max-width: 800px) {
-  .features {
+  .features,
+  .testimonial-grid,
+  .about,
+  .menu-columns {
     grid-template-columns: 1fr;
   }
 
