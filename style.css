@@ -122,7 +122,6 @@ a {
   border-radius: 999px;
 }
 
-/* ---------- Commit 6: Full menu ---------- */
 .full-menu {
   padding: 16px 8% 64px;
   text-align: center;
@@ -169,7 +168,6 @@ a {
   color: var(--brown);
 }
 
-/* ---------- Commit 5: About + Testimonials ---------- */
 .about {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -247,6 +245,94 @@ a {
   color: var(--brown);
 }
 
+/* ---------- Commit 7: Contact + Hours ---------- */
+.contact-section {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  padding: 64px 8%;
+}
+
+.contact-section h2 {
+  margin-bottom: 16px;
+  font-size: 2rem;
+  color: var(--brown);
+}
+
+.address {
+  margin-bottom: 20px;
+  color: #6b5b4e;
+}
+
+.hours ul {
+  list-style: none;
+}
+
+.hours li {
+  display: flex;
+  justify-content: space-between;
+  padding: 12px 0;
+  border-bottom: 1px solid #e7d7c4;
+}
+
+.hours li span:first-child {
+  font-weight: bold;
+}
+
+.contact-form {
+  padding: 32px;
+  background: #fff;
+  border-radius: 14px;
+  box-shadow: 0 6px 20px rgba(43, 29, 20, 0.08);
+}
+
+.contact-form label {
+  display: block;
+  margin: 14px 0 6px;
+  font-size: 0.9rem;
+  font-weight: bold;
+}
+
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  padding: 12px 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--dark);
+  background: var(--cream);
+  border: 1px solid #e0cdb5;
+  border-radius: 8px;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  border-color: var(--brown);
+  box-shadow: 0 0 0 3px rgba(111, 78, 55, 0.18);
+}
+
+.contact-form button {
+  width: 100%;
+  margin-top: 22px;
+  padding: 14px;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: bold;
+  color: #fff;
+  background: var(--brown);
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+.contact-form button:hover {
+  background: var(--dark);
+  transform: translateY(-2px);
+}
+
 .footer {
   padding: 32px 8%;
   text-align: center;
@@ -263,13 +349,15 @@ a {
 
   .feature,
   .stat,
-  .testimonial {
+  .testimonial,
+  .contact-form {
     background: #2b1d14;
   }
 
   .feature p,
   .about-text p,
-  .stat span {
+  .stat span,
+  .address {
     color: #bfae9c;
   }
 
@@ -280,7 +368,8 @@ a {
   .menu-group h3,
   .menu-group li span:last-child,
   .stat strong,
-  .testimonial cite {
+  .testimonial cite,
+  .contact-section h2 {
     color: #f4c27a;
   }
 
@@ -291,13 +380,30 @@ a {
   .menu-group .dots {
     border-bottom-color: #5a4636;
   }
+
+  .hours li {
+    border-bottom-color: #3d2c20;
+  }
+
+  .contact-form input,
+  .contact-form textarea {
+    color: #f3e9dc;
+    background: #1a120c;
+    border-color: #4a382a;
+  }
+
+  .contact-form button:hover {
+    background: #f4c27a;
+    color: var(--dark);
+  }
 }
 
 @media (max-width: 800px) {
   .features,
   .testimonial-grid,
   .about,
-  .menu-columns {
+  .menu-columns,
+  .contact-section {
     grid-template-columns: 1fr;
   }
 
