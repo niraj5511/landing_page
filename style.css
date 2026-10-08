@@ -12,6 +12,7 @@
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 80px;
 }
 
 body {
@@ -25,12 +26,17 @@ a {
   text-decoration: none;
 }
 
+/* ---------- Navbar (sticky) ---------- */
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 20px 8%;
+  padding: 18px 8%;
   background: var(--dark);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.25);
 }
 
 .logo {
@@ -40,15 +46,32 @@ a {
 }
 
 .navbar nav a {
+  position: relative;
   margin-left: 24px;
   color: #e7d7c4;
   transition: color 0.2s;
+}
+
+.navbar nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -4px;
+  width: 0;
+  height: 2px;
+  background: #f4c27a;
+  transition: width 0.25s;
 }
 
 .navbar nav a:hover {
   color: #f4c27a;
 }
 
+.navbar nav a:hover::after {
+  width: 100%;
+}
+
+/* ---------- Hero ---------- */
 .hero {
   padding: 120px 8%;
   text-align: center;
@@ -82,6 +105,7 @@ a {
   transform: translateY(-3px);
 }
 
+/* ---------- Feature cards ---------- */
 .features {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
@@ -122,6 +146,7 @@ a {
   border-radius: 999px;
 }
 
+/* ---------- Full menu ---------- */
 .full-menu {
   padding: 16px 8% 64px;
   text-align: center;
@@ -168,6 +193,7 @@ a {
   color: var(--brown);
 }
 
+/* ---------- About ---------- */
 .about {
   display: grid;
   grid-template-columns: 1.4fr 1fr;
@@ -213,6 +239,7 @@ a {
   color: #6b5b4e;
 }
 
+/* ---------- Testimonials ---------- */
 .testimonials {
   padding: 56px 8%;
   text-align: center;
@@ -245,7 +272,7 @@ a {
   color: var(--brown);
 }
 
-/* ---------- Commit 7: Contact + Hours ---------- */
+/* ---------- Contact + Hours ---------- */
 .contact-section {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -333,6 +360,7 @@ a {
   transform: translateY(-2px);
 }
 
+/* ---------- Footer ---------- */
 .footer {
   padding: 32px 8%;
   text-align: center;
@@ -341,6 +369,51 @@ a {
   background: var(--dark);
 }
 
+/* ---------- Commit 8: Back-to-top button ---------- */
+.to-top {
+  position: fixed;
+  right: 24px;
+  bottom: 24px;
+  z-index: 100;
+  display: grid;
+  place-items: center;
+  width: 46px;
+  height: 46px;
+  font-size: 1.3rem;
+  font-weight: bold;
+  color: var(--dark);
+  background: #f4c27a;
+  border-radius: 50%;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s, background 0.2s;
+}
+
+.to-top:hover {
+  background: #ffd699;
+  transform: translateY(-4px);
+}
+
+/* Keyboard focus visibility */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible {
+  outline: 3px solid #f4c27a;
+  outline-offset: 3px;
+}
+
+/* Respect reduced-motion preference */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  * {
+    transition: none !important;
+  }
+}
+
+/* ---------- Dark mode ---------- */
 @media (prefers-color-scheme: dark) {
   body {
     background: #1a120c;
@@ -398,6 +471,7 @@ a {
   }
 }
 
+/* ---------- Responsive ---------- */
 @media (max-width: 800px) {
   .features,
   .testimonial-grid,
